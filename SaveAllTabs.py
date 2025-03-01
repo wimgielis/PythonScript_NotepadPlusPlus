@@ -1,4 +1,4 @@
-from Npp import notepad, editor, console
+from Npp import notepad
 import os
 import re
 
