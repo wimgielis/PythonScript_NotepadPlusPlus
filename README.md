@@ -9,6 +9,8 @@ DeleteText.py: select text, press Alt-d and in the whole file it will be removed
 
 MergeLines.py: select lines and choose a separator. I could not find the same functionality in Notepad++ but maybe I overlooked.
 
+UnmergeText.py: the inverse operation or MergeLines. A customer separator can be derived and if not found, chosen.
+
 SaveAllTabs.py: a loop through all open tabs. If unsaved, the code saves the tab if already saved earlier. If not yet saved, it is writting in a hardcoded folder on the hard drive.
 
 DuplicateTab: duplicate the text in the current tab as a new tab, immediately to the right and enable the same language syntax (if any)
