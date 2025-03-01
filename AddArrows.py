@@ -16,10 +16,10 @@ editor.beginUndoAction()
 try:
     # Select all text
     editor.selectAll()
-    text = editor.getText()
+    all_text = editor.getText()
 
     # Split into lines and process
-    lines = text.splitlines()
+    lines = all_text.splitlines()
     new_lines = []
 
     for line in lines:
