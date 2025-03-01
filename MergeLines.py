@@ -1,4 +1,4 @@
-from Npp import notepad, editor, console
+from Npp import notepad, editor
 
 
 # Wim Gielis
@@ -6,7 +6,7 @@ from Npp import notepad, editor, console
 #
 # MergeLines script (Alt-m):
 #       - The selected lines are merged with a chosen separator
-#       - the separator is asked from the user.
+#       - The separator is asked from the user
 #       - If the selected text contains empty lines, these can be retained or not in the final merged string.
 #         A prompt will ask the user to retain the empty lines or not. Default: not retain empty lines.
 
@@ -20,12 +20,13 @@ if not separator is None:
     # if separator:
         # # the user provided a separator
 
-    if separator == '1':
-        separator = ', '
-    elif separator == '2':
-        separator = '|'
-    elif separator == '3':
-        separator = ' + '
+    match separator:
+        case '1':
+            separator = ', '
+        case '2':
+            separator = '|'
+        case '3':
+            separator = ' + '
 
     # Get the selection start position
     selection_start = editor.getSelectionStart()
