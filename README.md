@@ -9,7 +9,7 @@ MergeLines.py (Alt-m):
 select lines and choose a separator. I could not find the same functionality in Notepad++ but maybe I overlooked.
 
 UnmergeText.py (Alt-e):
-the inverse operation or MergeLines. A customer separator can be derived and if not found, chosen.
+the inverse operation of MergeLines. A customer separator can be derived and if not found, chosen.
 
 DeleteText.py (Alt-d):
 select text, press Alt-d and in the whole file it will be removed. Much faster than Replace with an empty string and making sure the checkbox with regex/normal/extended is right, etc.
