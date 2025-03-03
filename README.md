@@ -1,4 +1,4 @@
-10 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
+11 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
 After that, it becomes really powerful.
 
 Wim Gielis
