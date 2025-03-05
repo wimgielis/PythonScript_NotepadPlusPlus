@@ -8,7 +8,7 @@ import re
 # DeleteText script (Alt-d):
 #       - The selected text is deleted in the whole file
 #       - If no text is selected then input is asked from the user. Using this input, a regular expressions way of deleting can be asked:
-#         * if the input is re...... and it starts with 're' then the regex following the 1 is deleted everywhere
+#         * if the input is re...... and it starts with 're&' then the regex following the 1 is deleted everywhere
 #         * all other input is treated as literal text
 #       - This script works faster for the regular deletes (literal text),
 #         but also for regex, it is faster and has the added benefit that the regex checkbox is not activated in the Find/Replace dialog window.
@@ -25,7 +25,7 @@ import re
 #         * https://npppythonscript.sourceforge.net/docs/latest/scintilla.html
 
 
-PREFIX_REGEX = 're'
+PREFIX_REGEX = 're&'
 
 
 def delete_text(text_pattern: str, delete_mode: int) -> None:
