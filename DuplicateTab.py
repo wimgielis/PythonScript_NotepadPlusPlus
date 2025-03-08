@@ -43,38 +43,44 @@ cursor_position = cursor_position_info[0]
 udl_name = notepad.getLanguageName(current_lang_id) if current_lang_id != -1 else notepad.getLangTypeAsString()
 
 # Get the content of the current tab
-current_content = editor.getText()
+try:
+    current_content = editor.getText()
+    stop = 0
+except:
+    notepad.messageBox("An error was produced while getting the text of the file. Probably an encoding issue.", "Issue", 0)
+    stop = 1
 
-# Create a new document (opens a new tab)
-notepad.new()
+if stop == 0:
+    # Create a new document (opens a new tab)
+    notepad.new()
 
-# Insert the copied content into the new tab
-editor.setText(current_content)
+    # Insert the copied content into the new tab
+    editor.setText(current_content)
 
-# Set the cursor position
-set_cursor_position(cursor_position)
-editor.charRight()
-editor.charLeft()
+    # Set the cursor position
+    set_cursor_position(cursor_position)
+    editor.charRight()
+    editor.charLeft()
 
-# Apply the language syntax
-if udl_name == 'Normal text':
-    # No action needed
-    pass
-elif str(current_lang_id) == "USER":
-    # User-defined language
-    if udl_name:
-        # Cut off the first part 'udf - '
-        if udl_name[6:]:
-            notepad.runMenuCommand('Language', udl_name[6:])
-else:
-    # Built-in language
-    notepad.runMenuCommand(udl_name[0], udl_name)
-    udl_name_2 = notepad.getLanguageName(notepad.getLangType()) if notepad.getLangType() != -1 else notepad.getLangTypeAsString()
-    if udl_name_2 != udl_name:
-        notepad.menuCommand('Language', udl_name)
+    # Apply the language syntax
+    if udl_name == 'Normal text':
+        # No action needed
+        pass
+    elif str(current_lang_id) == "USER":
+        # User-defined language
+        if udl_name:
+            # Cut off the first part 'udf - '
+            if udl_name[6:]:
+                notepad.runMenuCommand('Language', udl_name[6:])
+    else:
+        # Built-in language
+        notepad.runMenuCommand(udl_name[0], udl_name)
+        udl_name_2 = notepad.getLanguageName(notepad.getLangType()) if notepad.getLangType() != -1 else notepad.getLangTypeAsString()
+        if udl_name_2 != udl_name:
+            notepad.menuCommand('Language', udl_name)
 
-# Position the new tab to the right of the old tab
-positions_to_move = get_number_of_tabs(current_view) - current_tab_index - 2
-if positions_to_move > 0:
-    for _ in range(positions_to_move):
-        notepad.menuCommand(MENUCOMMAND.VIEW_TAB_MOVEBACKWARD)
+    # Position the new tab to the right of the old tab
+    positions_to_move = get_number_of_tabs(current_view) - current_tab_index - 2
+    if positions_to_move > 0:
+        for _ in range(positions_to_move):
+            notepad.menuCommand(MENUCOMMAND.VIEW_TAB_MOVEBACKWARD)
