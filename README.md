@@ -42,7 +42,7 @@ Search a string in text files of a folder. Delete the matching FILES (keep the o
 Insert text or a series of numbers (with a pattern) onto the rectangular selection
 
 - TM1NoElementsWithCarets (Alt-z):
-In view MDX, we remove in the member syntax with ^ characters anything in front the real element name.
+In view MDX, we remove in the member syntax with ^ characters anything in front of the real element name.
 
 - AddArrows.py (alt-a):
 Probably only useful to me :-) Serves a specific purpose of adding ==> text in the empty lines between paragraphes of text copied from an email.
