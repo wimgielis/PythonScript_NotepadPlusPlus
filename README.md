@@ -1,4 +1,4 @@
-13 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
+14 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
 After that, it becomes really powerful.
 
 Wim Gielis
@@ -34,6 +34,9 @@ Search a text (literal or regex) and all lines in the file where the search stri
 
 - SearchTextKeepLine.py (alt-l):
 Search a text (literal or regex) and all lines in the file where the search string occurs, will be kept. The selected text is presented as the choice of search string. Very useful in data text files or log files.
+
+- SearchTextInFolderKeepOrDeleteFiles:
+Search a string in text files of a folder. Delete the matching FILES (keep the others), or keep (and delete the others).
 
 - RectangularEdits.py (alt-r):
 Insert text or a series of numbers (with a pattern) onto the rectangular selection
