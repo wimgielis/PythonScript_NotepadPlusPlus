@@ -1,4 +1,4 @@
-14 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
+15 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
 After that, it becomes really powerful.
 
 Wim Gielis
@@ -25,6 +25,9 @@ The selected text is indented. We add 4 spaces to the beginning of every non-emp
 
 - UnindentText.py (alt-shift-i):
 The selected text is unindented. We remove 4 spaces from the beginning of every non-empty line.
+
+- SelectLastCharacter (alt-b):
+For the selected text, select each time after the last character (not the EOL character). Adding text to lines with variable lenghts becomes easy.
 
 - CleanUpSpaces.py (alt-p):
 The selected text is trimmed for the trailing whitespace. Then we convert leading tabs to 4 spaces. Lastly, multiples of 3 spaces are converted to the same multiple of 4 spaces.
