@@ -88,7 +88,7 @@ if num_selections == 1:
             # the user entered nothing
             delete_mode = -1
         elif selected_text.startswith(PREFIX_REGEX):
-            # prefix 1 means a regex delete
+            # prefix means a regex delete
             delete_mode = 1
             selected_text = selected_text[len(PREFIX_REGEX):]
         else:

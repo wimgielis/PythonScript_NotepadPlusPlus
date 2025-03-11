@@ -70,24 +70,25 @@ script_section = SCRIPT_NAME
 
 continue_script = True
 
-# Ask for search string, but try to get if from the configuration file
-search_string = config.get(script_section, "search_string", fallback=None)[1:-1]
-search_string = notepad.prompt("Enter the word or string to search: ", "Search string", search_string)
-if not search_string:
-    notepad.messageBox( "Error: No search string provided!", "Invalid entry", MESSAGEBOXFLAGS.OK + MESSAGEBOXFLAGS.ICONSTOP )
-    continue_script = False
-else:
-    search_string = search_string.strip()
+if continue_script:
+    # Ask for a search string, but try to get if from the configuration file
+    search_string = config.get(script_section, "search_string", fallback=None)[1:-1]
+    search_string = notepad.prompt("Enter the word or string to search:", "Search string", search_string)
+    if not search_string:
+        notepad.messageBox( "Error: No search string provided!", "Invalid entry", MESSAGEBOXFLAGS.OK + MESSAGEBOXFLAGS.ICONSTOP )
+        continue_script = False
+    else:
+        search_string = search_string.strip()
 
 if continue_script:
     # Ask for a valid folder path
-    folder_path = config.get(script_section, "folder_path", fallback=None)[1:-1]
-    folder_path = notepad.prompt("Paste the folder path to search in: ", "Folder path", folder_path)
+    folder_path = config.get(script_section, "folder_path", fallback=None)
+    folder_path = notepad.prompt("Paste the folder path to search in:", "Folder path", folder_path)
     if not folder_path:
         notepad.messageBox( "Error: No folder path provided!", "Invalid entry", MESSAGEBOXFLAGS.OK + MESSAGEBOXFLAGS.ICONSTOP )
         continue_script = False
     else:
-        folder_path = folder_path.strip()
+        folder_path = folder_path.strip('"')
 
     if not os.path.isdir(folder_path):
         notepad.messageBox( "Error: Invalid folder path!", "Invalid entry", MESSAGEBOXFLAGS.OK + MESSAGEBOXFLAGS.ICONSTOP )
@@ -96,7 +97,7 @@ if continue_script:
 if continue_script:
     # Ask for file extensions
     extensions = config.get(script_section, "extensions", fallback=None)[1:-1]
-    extensions = notepad.prompt("Enter file extension(s) (comma-separated, e.g.: txt,log): ", "File extensions", extensions)
+    extensions = notepad.prompt("Enter file extension(s) (comma-separated, e.g.: txt,log):", "File extensions", extensions)
     if not extensions:
         notepad.messageBox( "Error: No file extension provided!", "Invalid entry", MESSAGEBOXFLAGS.OK + MESSAGEBOXFLAGS.ICONSTOP )
         continue_script = False
@@ -106,7 +107,7 @@ if continue_script:
 if continue_script:
     # Ask for delete mode
     delete_option = config.get(script_section, "delete_option", fallback=None)[1:-1]
-    delete_option = notepad.prompt("Do you want to DELETE files containing the search string? (yes/no): ", "DELETE (yes) or KEEP (no) files", delete_option)
+    delete_option = notepad.prompt("Do you want to DELETE files containing the search string? (yes/no):", "DELETE (yes) or KEEP (no) files", delete_option)
     if not delete_option:
         notepad.messageBox( "Error: No delete option provided!", "Invalid entry", MESSAGEBOXFLAGS.OK + MESSAGEBOXFLAGS.ICONSTOP )
         continue_script = False
