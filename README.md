@@ -1,4 +1,4 @@
-15 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
+16 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
 After that, it becomes really powerful.
 
 Wim Gielis
@@ -40,6 +40,9 @@ Search a text (literal or regex) and all lines in the file where the search stri
 
 - SearchTextInFolderKeepOrDeleteFiles:
 Search a string in text files of a folder. Delete the matching files (keep the others), or keep (and delete the others).
+
+- ConvertTextNumbersToNumbers (alt-n):
+The selection is a tabular format. Provide a field separator, column(s) to convert to numbers and locales.
 
 - RectangularEdits.py (alt-r):
 Insert text or a series of numbers (with a pattern) onto the rectangular selection
