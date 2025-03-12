@@ -1,4 +1,4 @@
-17 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
+18 useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
 After that, it becomes really powerful.
 
 Wim Gielis
@@ -16,6 +16,9 @@ Select text, press Alt-d and in the whole file it will be removed. Much faster t
 
 - DuplicateTab.py (alt-t):
 Duplicate the text in the current tab as a new tab, immediately to the right and enable the same language syntax (if any)
+
+- DeleteTab (alt-del):
+Delete the tab (the file if it was already saved) or close without changes (it not yet saved).
 
 - SaveTab (alt-x):
 Tab to space, trim trailing space, then save the file (if needed, write to disk), reload the file
