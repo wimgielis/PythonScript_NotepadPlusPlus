@@ -47,3 +47,5 @@ if selection_ranges:
     # Add additional selections
     for start, end in selection_ranges[1:]:
         editor.addSelection(end, start)
+
+    editor.setSelectionMode(0)

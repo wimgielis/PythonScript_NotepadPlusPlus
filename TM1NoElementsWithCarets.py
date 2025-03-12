@@ -17,20 +17,25 @@ editor.beginUndoAction()
 # Get the current position of the caret to avoid losing position after replacement
 caret_position = editor.getCurrentPos()
 
-# Remove texts
-editor.rereplace(r"(\[.*\]\.\[.*\]\.)\[[^\]]*\^([^\]]+)\]", r"\1[\2]")
-editor.rereplace(r"(\[.*\]\.)\[[^\]]*\^([^\]]+)\]", r"\1[\2]")
-
-# Move caret back to its original position
-editor.gotoPos(caret_position)
-
-# End the undo action
-editor.endUndoAction()
-
-
 # Do we still have carets ?
 caret_count = len(re.findall(r'\^', editor.getText()))
-if caret_count == 1:
-    notepad.messageBox(f"There is still 1 caret in the text.", "Caret Count", 0)
-elif caret_count > 1:
-    notepad.messageBox(f"There are still {caret_count} carets in the text.", "Caret Count", 0)
+if caret_count == 0:
+    notepad.messageBox(f"No carets were found.", "Caret Count", 0)
+else:
+
+    # Remove texts
+    editor.rereplace(r"(\[.*\]\.\[.*\]\.)\[[^\]]*\^([^\]]+)\]", r"\1[\2]")
+    editor.rereplace(r"(\[.*\]\.)\[[^\]]*\^([^\]]+)\]", r"\1[\2]")
+
+    # Move caret back to its original position
+    editor.gotoPos(caret_position)
+
+    # End the undo action
+    editor.endUndoAction()
+
+    # Do we still have carets ?
+    caret_count = len(re.findall(r'\^', editor.getText()))
+    if caret_count == 1:
+        notepad.messageBox(f"There is still 1 caret in the text.", "Caret Count", 0)
+    elif caret_count > 1:
+        notepad.messageBox(f"There are still {caret_count} carets in the text.", "Caret Count", 0)
