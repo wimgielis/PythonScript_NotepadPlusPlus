@@ -26,7 +26,7 @@ The selected text is indented. We add 4 spaces to the beginning of every non-emp
 - UnindentText.py (alt-shift-i):
 The selected text is unindented. We remove 4 spaces from the beginning of every non-empty line.
 
-- SelectLastCharacter (alt-b):
+- SelectLastCharacter (alt-F12):
 For the selected text, select each time after the last character (not the EOL character). Adding text to lines with variable lenghts becomes easy.
 
 - CleanUpSpaces.py (alt-p):
