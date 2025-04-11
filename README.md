@@ -21,7 +21,7 @@ Duplicate the text in the current tab as a new tab, immediately to the right and
 Delete the tab (the file if it was already saved) or close without changes (it not yet saved).
 
 - BulletText (alt-b):
-Add bullets to the selected lines (- ... so a dash and a space in front)
+Add bullets to the selected lines (- ... so a hyphen and a space in front)
 
 - SaveTab (alt-x):
 Tab to space, trim trailing space, then save the file (if needed, write to disk), reload the file
