@@ -2,7 +2,7 @@ Many useful scripts for usage in Notepad++. Setup first is needed to have Python
 After that, it becomes really powerful.
 
 Wim Gielis
-Q1 2025
+HY1 2025
 
 
 - MergeLines.py (alt-m):
@@ -52,6 +52,9 @@ Search a text (literal or regex) and all lines in the file where the search stri
 
 - SearchTextInFolderKeepOrDeleteFiles:
 Search a string in text files of a folder. Delete the matching files (keep the others), or keep (and delete the others).
+
+- DeleteNP++Text (alt-w):
+After copying search results to a new file, we remove the number of hits and file extensions from the end of each line.
 
 - ConvertTextNumbersToNumbers (alt-n):
 The selection is a tabular format. Provide a field separator, column(s) to convert to numbers and locales.
