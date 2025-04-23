@@ -66,4 +66,4 @@ Insert text or a series of numbers (with a pattern) onto the rectangular selecti
 In view MDX, we remove in the member syntax with ^ characters anything in front of the real element name.
 
 - AddArrows.py (alt-a):
-Probably only useful to me :-) Serves a specific purpose of adding ==> text in the empty lines between paragraphes of text copied from an email.
+Probably only useful to me :-) Serves a specific purpose of adding ==> text in the empty lines between paragraphes of text copied from an email. Also, and first, it cleans up the text from emails copied from Gmail.
