@@ -53,6 +53,9 @@ Search a text (literal or regex) and all lines in the file where the search stri
 - SearchTextInFolderKeepOrDeleteFiles:
 Search a string in text files of a folder. Delete the matching files (keep the others), or keep (and delete the others).
 
+- OpenProcess (alt-g):
+Open the TI process whose base file name is under the cursor.
+
 - DeleteNP++Hits (alt-w):
 After copying search results to a new file, we remove the number of hits and file extensions from the end of each line.
 
