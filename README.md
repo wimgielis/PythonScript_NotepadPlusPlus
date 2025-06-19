@@ -68,5 +68,8 @@ Insert text or a series of numbers (with a pattern) onto the rectangular selecti
 - TM1NoElementsWithCarets (Alt-z):
 In view MDX, we remove in the member syntax with ^ characters anything in front of the real element name.
 
+- TM1NoHierarchyNotation (Alt-f):
+In rules and feeders, we remove the hierarchy notation for the element references in the main hierarchy.
+
 - TreatEmeilText.py (alt-a):
 Probably only useful to me :-) To format emails from Gmail. Also, also extra text to emails from Neil
