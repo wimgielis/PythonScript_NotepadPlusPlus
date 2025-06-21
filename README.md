@@ -47,7 +47,7 @@ The selected text is trimmed for the trailing whitespace. Then we convert leadin
 - SearchTextDeleteLine.py (alt-l):
 Search a text (literal or regex) and all lines in the file where the search string occurs, will be removed. The selected text is presented as the choice of search string. Very useful in data text files or log files.
 
-- SearchTextKeepLine.py (alt-l):
+- SearchTextKeepLine.py (alt-k):
 Search a text (literal or regex) and all lines in the file where the search string occurs, will be kept. The selected text is presented as the choice of search string. Very useful in data text files or log files.
 
 - SearchTextInFolderKeepOrDeleteFiles:
@@ -69,7 +69,7 @@ Insert text or a series of numbers (with a pattern) onto the rectangular selecti
 In view MDX, we remove in the member syntax with ^ characters anything in front of the real element name.
 
 - TM1NoHierarchyNotation (Alt-f):
-In rules and feeders, we remove the hierarchy notation for the element references in the main hierarchy.
+In rules and feeders, we add or remove the hierarchy notation for the element references in the main hierarchy.
 
 - TreatEmeilText.py (alt-a):
 Probably only useful to me :-) To format emails from Gmail. Also, also extra text to emails from Neil
