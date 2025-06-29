@@ -66,7 +66,7 @@ The selection is a tabular format. Provide a field separator, column(s) to conve
 Insert text or a series of numbers (with a pattern) onto the rectangular selection
 
 - TM1Tools (Alt-f):
-In rules and feeders, we add or remove the hierarchy notation for the element references in the main hierarchy. Or we remove the part in front of the caret.
+4 tools. Remove empty lines, remove left of caret, rework hierarchy notations. Copy to the clipboard afterwards.
 
 - TreatEmeilText.py (alt-a):
 Probably only useful to me :-) To format emails from Gmail. Also, also extra text to emails from Neil
