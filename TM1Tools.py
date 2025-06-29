@@ -6,15 +6,17 @@ import re
 # Jun. 2025
 #
 # TM1Tools script (Alt-f):
-#       - there are 3 options, which one you want is asked in the prompt
-#       * if you choose "remove" or "add" in the prompt
-#       - For TM1 rules and feeders syntax, we either add or remove the hierarchy notation
-#       - only the dim:elem notation remains when removing text
-#       - the full dim:hier:elem notation is used when adding text
-#       * if you choose "caret" in the prompt
+#       There are 4 tools, which one you want is asked in the prompt
+#       * if you choose "empty lines" (or "1") in the prompt
+#       - We remove all lines that are completely empty. This is to correct MDX editor issues where additional whitespace is added time and time again.
+#       * if you choose "caret" (or "2") in the prompt
 #       - We search for strings with a caret character (^) in it. It should only be inside square brackets.
 #       - In addition, the square brackets must follow 1 or 2 square bracketed text
 #       - Then we remove anything inside the square brackets in front of (and including) the last caret.
+#       * if you choose "remove" (or "3") or "add" (or "4") in the prompt
+#       - For TM1 rules and feeders syntax, we either add or remove the hierarchy notation
+#       - only the dim:elem notation remains when removing text
+#       - the full dim:hier:elem notation is used when adding text
 
 
 # Start an undo action for a single undo step
@@ -24,10 +26,7 @@ editor.beginUndoAction()
 selected_text = editor.getSelText()
 
 # Ask user for action: remove or add text
-action = notepad.prompt("Which option? Remove = remove hierarchy notation inside the brackets. Add = add. Caret = remove the text left of the caret. Type 'remove' or 'add' or 'caret':", "Option", "remove")
-
-# Regex to match [ ... ]
-pattern = re.compile(r'\[(.*?)\]', re.DOTALL)
+action = notepad.prompt("Which option? 1/empty lines = Remove empty lines. 2/caret = remove the text left of carets. 3/remove = remove hierarchy notation inside brackets. 4/add = add hier notation.", "Option", "empty lines")
 
 def clean_part(part, strip_quotes: bool = True, in_lower_case: bool = True):
     """Remove outer single quotes, strip spaces, lowercase"""
@@ -80,21 +79,12 @@ def replacer_add(match):
 
 # Apply the chosen action (remove or add)
 if not action:
-    notepad.messageBox("Ok, no action chosen", "Information", 0)
+    notepad.messageBox("Ok good, no action needed", "Information", 0)
 
-elif action.upper() == "REMOVE":
+elif action == "1" or action.upper() == "EMPTY LINES":
+    editor.rereplace(r"^\s*\r?\n", r"")
 
-    result = pattern.sub(replacer_remove, selected_text)
-    # Replace selection with processed text
-    editor.replaceSel(result)
-
-elif action.upper() == "ADD":
-
-    result = pattern.sub(replacer_add, selected_text)
-    # Replace selection with processed text
-    editor.replaceSel(result)
-
-elif action.upper() == "CARET":
+elif action == "2" or action.upper() == "CARET":
     
     # Get the current position of the caret to avoid losing position after replacement
     caret_position = editor.getCurrentPos()
@@ -119,8 +109,25 @@ elif action.upper() == "CARET":
         elif caret_count > 1:
             notepad.messageBox(f"There are still {caret_count} carets in the text.", "Caret Count", 0)
 
+elif action == "3" or action.upper() == "REMOVE":
+
+    pattern = re.compile(r'\[(.*?)\]', re.DOTALL)
+    result = pattern.sub(replacer_remove, selected_text)
+    # Replace selection with processed text
+    editor.replaceSel(result)
+
+elif action == "4" or action.upper() == "ADD":
+
+    pattern = re.compile(r'\[(.*?)\]', re.DOTALL)
+    result = pattern.sub(replacer_add, selected_text)
+    # Replace selection with processed text
+    editor.replaceSel(result)
+
 else:
-    notepad.messageBox("Invalid action. Please type 'remove' or 'add' or 'caret'.", "Error", 0)
+    notepad.messageBox("Invalid action. Please type '1/2/3/4' or 'empty lines/caret/remove/add'.", "Error", 0)
+
+# Copy all text to the Windows clipboard
+editor.copyText(editor.getText())
 
 # End the undo action
 editor.endUndoAction()
