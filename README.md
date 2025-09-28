@@ -2,7 +2,7 @@ Many useful scripts for usage in Notepad++. Setup first is needed to have Python
 After that, it becomes really powerful.
 
 Wim Gielis
-HY1 2025
+2025
 
 
 - MergeLines.py (alt-m):
@@ -13,6 +13,9 @@ The inverse operation of MergeLines. A custom separator can be derived and if no
 
 - DeleteText.py (alt-d):
 Select text, press Alt-d and in the whole file it will be removed. Much faster than Replace with an empty string and making sure the checkbox with regex/normal/extended is right, etc.
+
+- QuickReplace.py (alt-v):
+The selected text will be replaced in the whole file with a chosen text (case sensitive search, no regex)
 
 - DuplicateTab.py (alt-t):
 Duplicate the text in the current tab as a new tab, immediately to the right and enable the same language syntax (if any)
@@ -50,7 +53,7 @@ Search a text (literal or regex) and all lines in the file where the search stri
 - SearchTextKeepLine.py (alt-k):
 Search a text (literal or regex) and all lines in the file where the search string occurs, will be kept. The selected text is presented as the choice of search string. Very useful in data text files or log files.
 
-- SearchTextInFolderKeepOrDeleteFiles:
+- SearchTextInFolderKeepOrDeleteFiles (no shortcut assigned):
 Search a string in text files of a folder. Delete the matching files (keep the others), or keep (and delete the others).
 
 - OpenProcess (alt-g):
