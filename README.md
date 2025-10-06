@@ -68,6 +68,9 @@ The selection is a tabular format. Provide a field separator, column(s) to conve
 - RectangularEdits.py (alt-r):
 Insert text or a series of numbers (with a pattern) onto the rectangular selection
 
+- ReplaceWithTemplate.py (alt-shift-t):
+Replace the selected lines with a template (to add text in front and/or at the end)
+
 - TM1Tools (Alt-f):
 4 tools. Remove empty lines, remove left of caret, rework hierarchy notations. Copy to the clipboard afterwards.
 
