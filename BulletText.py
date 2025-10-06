@@ -44,3 +44,19 @@ if lines:
     editor.replaceSel(new_text)
     editor.setCurrentPos(sel_start + 2)
     editor.gotoPos(sel_start + 2)
+
+
+# In case the selection is smallish:
+# def forEachSelectedLine(callback):
+#     start_line = editor.lineFromPosition(editor.getSelectionStart())
+#     end_line   = editor.lineFromPosition(editor.getSelectionEnd())
+#     for line_num in range(start_line, end_line + 1):
+#         line_text = editor.getLine(line_num)
+#         callback(line_text, line_num)
+# 
+# def Bulletted_Text(contents, lineNumber, totalLines=None):
+#     contents = str(contents).rstrip('\n\r')
+#     editor.replaceLine(lineNumber, f"- {contents}")
+# 
+# 
+# forEachSelectedLine(Bulletted_Text)

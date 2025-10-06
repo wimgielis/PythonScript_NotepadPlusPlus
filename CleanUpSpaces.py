@@ -1,4 +1,4 @@
-from Npp import notepad, editor, console
+from Npp import notepad, editor
 
 NUMBER_OF_INDENT_SPACES = 4
 

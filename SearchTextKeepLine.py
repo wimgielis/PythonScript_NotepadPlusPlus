@@ -1,6 +1,5 @@
 from Npp import editor, notepad
 import re
-from collections import Counter
 
 
 # Wim Gielis

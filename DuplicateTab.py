@@ -1,4 +1,8 @@
 from Npp import notepad, editor
+import ctypes
+import os
+import shutil
+import tempfile
 
 
 # Wim Gielis
@@ -29,6 +33,21 @@ def get_number_of_tabs(view=None):
             if v == view: retval += 1
         return retval
 
+def is_current_tab_saved():
+    # Get the full path of the current file
+    file_path = notepad.getCurrentFilename()
+
+    # If the tab has never been saved (e.g. "new 1"), the filename is empty
+    if not file_path or not os.path.isfile(file_path):
+        return False
+
+    # If there are unsaved changes in the current document
+    if editor.getModify():
+        return False
+
+    # File exists and there are no unsaved changes
+    return True
+
 
 # Get the built-in language type (if any)
 current_lang_id = notepad.getLangType()
@@ -47,7 +66,24 @@ try:
     current_content = editor.getText()
     stop = 0
 except:
-    notepad.messageBox("An error was produced while getting the text of the file. Probably an encoding issue.", "Issue", 0)
+
+    if is_current_tab_saved():
+
+        current_path = notepad.getCurrentFilename()
+        file_name = os.path.basename(current_path)
+
+        # Get system temp directory
+        temp_dir = tempfile.gettempdir()
+        temp_path = os.path.join(temp_dir, file_name)
+
+        # Copy the file to temp
+        shutil.copy2(current_path, temp_path)
+
+        # Open the copied file in Notepad++
+        notepad.open(temp_path)
+    else:
+        notepad.messageBox("An error was produced while getting the text of the file. Probably an encoding issue.", "Issue", 0)
+
     stop = 1
 
 if stop == 0:

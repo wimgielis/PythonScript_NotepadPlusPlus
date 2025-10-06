@@ -48,7 +48,7 @@ else:
 
     # Ask user for initial number and step value, or text, using Notepad++ built-in prompt dialog
     is_number = False
-    initial_value = notepad.prompt("Enter the initial or text:", "Input", "1")
+    initial_value = notepad.prompt("Enter the initial numeric or text value:", "Input", "1")
     initial_value = convert_to_number(initial_value)
     if isinstance( initial_value, (int, float)):
         is_number = True

@@ -13,6 +13,7 @@ import os
 #       - This script automates it for the selected lines
 #       - Also, it will remove the largest common path from the left of each of the lines
 #       - Lastly, it will remove the dot and the file extension IF, and only if, all lines share the same file extension
+#       - If we want to support the output from copying file paths in Windows File Explorer, then we must first get rid of leading trailing double quotes
 
 
 editor.beginUndoAction()
@@ -24,13 +25,15 @@ try:
         selected_text = editor.getText()
 
     lines = selected_text.splitlines()
+    lines = [line.strip('"').lstrip() for line in lines]
+    
     cleaned_lines = []
 
     # Regex pattern: matches "(1 hit)" or "(23 hits)" at the end of the line
     # for line in lines:
         # cleaned_lines.append(re.sub(hit_pattern, '', line))
     hit_pattern = re.compile(r'\s\(\d+\s+hits?\)$')
-    cleaned_lines = [re.sub(hit_pattern, '', line.lstrip()) for line in lines]
+    cleaned_lines = [re.sub(hit_pattern, '', line) for line in lines if not (line.startswith('Search') or line.startswith('Line'))]
 
     # Compute the longest common path prefix
     common_path = os.path.commonprefix(cleaned_lines)
@@ -65,6 +68,7 @@ try:
         end_pos = editor.getSelectionEnd()
         editor.setTargetStart(start_pos)
         editor.setTargetEnd(end_pos)
-        editor.setText(new_text)
+    editor.setText(new_text)
+        
 finally:
     editor.endUndoAction()

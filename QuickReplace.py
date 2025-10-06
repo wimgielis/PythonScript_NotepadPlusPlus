@@ -15,26 +15,30 @@ from Npp import notepad, editor
 sel_text = editor.getSelText()
 find_text = sel_text if sel_text else ""
 
+do_continue = True
+
 # Ask for text to find
 if not find_text:
     find_text = notepad.prompt("Enter text to find:", "Simple Replace", find_text)
 
 if not find_text:
     notepad.messageBox("No find text entered. Aborted.", "Simple Replace")
-    exit()
+    do_continue = False
 
-# Ask for replacement text
-replace_text = notepad.prompt(f"Replace '{find_text}' with:", "Simple Replace", find_text)
-if replace_text is None:
-    notepad.messageBox("Aborted.", "Simple Replace")
-    exit()
+if do_continue:
+    # Ask for replacement text
+    replace_text = notepad.prompt(f"Replace '{find_text}' with:", "Simple Replace", find_text)
+    if replace_text is None:
+        notepad.messageBox("Aborted.", "Simple Replace")
+        do_continue = False
 
-# Replace in the whole document
-text = editor.getText()
-text_new = text.replace(find_text, replace_text)
+if do_continue:
+    # Replace in the whole document
+    text = editor.getText()
+    text_new = text.replace(find_text, replace_text)
 
-if text != text_new:
-    editor.setText(text_new)
+    if text != text_new:
+        editor.setText(text_new)
 
 
 # If case-insensitive:

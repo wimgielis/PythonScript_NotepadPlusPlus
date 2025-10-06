@@ -56,9 +56,12 @@ else:
                 line = match.group(1).replace('\t', " " * NUMBER_OF_INDENT_SPACES_EX_POST) + match.group(2)
 
             if not inside_example_call:
-                if line == 'If( 1 = 0 );':
-                    if lines[idx + 1].startswith('ExecuteProcess('):
-                        inside_example_call = True
+                if line == '#Region CallThisProcess':
+                    inside_example_call = True
+
+            if inside_example_call:
+                if line == '#EndRegion CallThisProcess':
+                    inside_example_call = False
 
             if not inside_example_call:
                 # Do we have spaces that is not a correct multiple ? Then flag this line in the console window
@@ -73,17 +76,14 @@ else:
                 for i in range_of_multiples:
                     line = re.sub(r"^ {" + str(i * NUMBER_OF_INDENT_SPACES_EX_ANTE) + r"}(?=\S)", " " * i * NUMBER_OF_INDENT_SPACES_EX_POST, line)
 
-            if inside_example_call:
-                if line == 'EndIf;':
-                    if lines[idx - 1] == ');':
-                        inside_example_call = False
-
         new_lines.append(line)
+
+console.write('\r\n')
 
 if lines_without_correct_spacing:
     console.write('\r\n'.join(lines_without_correct_spacing))
     if new_lines:
-        apply_changes = notepad.prompt(f"{len(lines_without_correct_spacing):,} line(s) without correct multiple of spaces were identified. Do you want to apply changes to {len(new_lines):,} line(s) anyway ?   Yes or No", "User input", "No")
+        apply_changes = notepad.prompt(f"{len(lines_without_correct_spacing):,} line(s) without correct multiple of spaces were identified (check the console). Do you want to apply changes to {len(new_lines):,} line(s) anyway ?   Yes or No", "User input", "No")
         if apply_changes:
             if apply_changes.strip().lower() == "y":
                 # Replace the content in the editor

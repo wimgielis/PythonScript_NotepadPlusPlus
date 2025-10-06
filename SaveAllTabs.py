@@ -3,7 +3,7 @@ import os
 import re
 
 
-SAVE_FOLDER = r'D:\_\Notepad++tabs'
+SAVE_FOLDER = r'D:\_\Temp txt'
 FILE_PATTERN = r'^\d{2}\.txt$'
 
 

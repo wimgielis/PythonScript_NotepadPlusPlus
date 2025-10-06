@@ -1,4 +1,5 @@
 from Npp import editor
+import re
 
 
 # Wim Gielis
@@ -21,7 +22,7 @@ editor.beginUndoAction()
 
 clean_up_emails = notepad.prompt("Do you want to clean up the email text ? (YN)", "Clean up email text", "Y")
 
-if clean_up_emails == 'Y':
+if clean_up_emails.upper() == 'Y':
     
     try:
 
@@ -37,11 +38,15 @@ if clean_up_emails == 'Y':
             # Skip certain lines
             if line == 'Best regards / Beste groeten,':
                 continue
+            if line == '(geen onderwerp)':
+                continue
             if line == 'Wim Gielis':
                 continue
-            if line.startswith('IBM Champion 20'):
+            if line.startswith('Sent:'):
                 continue
-            if line.startswith('MS Excel MVP 20'):
+            if 'IBM Champion' in line:
+                continue
+            if 'Excel MVP' in line:
                 continue
             if line == 'https://www.wimgielis.com':
                 continue
@@ -51,11 +56,17 @@ if clean_up_emails == 'Y':
                 continue
             if 'uur geleden' in line:
                 continue
+            if '1 dag geleden' in line:
+                continue
+            if 'dagen geleden' in line:
+                continue
             if line.strip() == '':
                 continue
             if line.strip() == 'Inbox':
                 continue
             if line == '------':
+                continue
+            if re.compile(r"Op .* \d{4} om \d{1,2}:\d{1,2} schreef").match(line):
                 continue
 
             if line == 'aan mij':
@@ -72,7 +83,7 @@ if clean_up_emails == 'Y':
 
 add_arrows = notepad.prompt("Do you want to add arrows to the text ? (YN)", "Add arrows", "N")
 
-if add_arrows == 'Y':
+if add_arrows.upper() == 'Y':
 
     try:
         # Select all text
