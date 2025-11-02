@@ -65,6 +65,9 @@ After copying search results to a new file, we remove the number of hits and fil
 - ConvertTextNumbersToNumbers (alt-n):
 The selection is a tabular format. Provide a field separator, column(s) to convert to numbers and locales.
 
+- SumNumbers (alt-$):
+Select any text, the numbers found in the text will be summed and displayed. Support for currencies.
+
 - RectangularEdits.py (alt-r):
 Insert text or a series of numbers (with a pattern) onto the rectangular selection
 
