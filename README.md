@@ -83,5 +83,5 @@ Replace the selected lines with a template (to add text in front and/or at the e
 - ReplaceGibberishWithTM1rules (no shortcut):
 Replace the value of code 565 in *.pro files with something deterministic.
 
-- TreatEmeilText.py (alt-a):
+- TreatEmailText.py (alt-a):
 Probably only useful to me :-) To format emails from Gmail. Also, also extra text to emails from Neil
