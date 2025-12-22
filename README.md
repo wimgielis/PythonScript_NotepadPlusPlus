@@ -68,6 +68,9 @@ The selection is a tabular format. Provide a field separator, column(s) to conve
 - SumNumbers (alt-$):
 Select any text, the numbers found in the text will be summed and displayed. Support for currencies.
 
+- TIJsonToNormal (ctrl-alt-j):
+The JSON code in the file for a TI is replaced with normal TI code in plain text. Parameters, variables and the code tabs are done.
+
 - RectangularEdits.py (alt-r):
 Insert text or a series of numbers (with a pattern) onto the rectangular selection
 
