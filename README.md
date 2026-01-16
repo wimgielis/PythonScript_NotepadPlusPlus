@@ -1,5 +1,5 @@
-Many useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
-After that, it becomes really powerful.
+30+ useful scripts for usage in Notepad++. Setup first is needed to have PythonScript in Notepad++
+After that, it becomes really powerful. A shortcut is used to launch the tool.
 
 Wim Gielis
 2025-2026
@@ -79,6 +79,9 @@ Replace the selected lines with a template (to add text in front and/or at the e
 
 - DuplicateAndIncrease (Alt-<):
 Duplicate the current line and increment each number with 1. Uses regex.
+
+- IncreaseNumbersInSelection (Ctrl-Alt-<):
+For the selected text, identify all numbers and increment with 1. Uses regex.
 
 - TM1Tools (Alt-f):
 4 tools. Remove empty lines, remove left of caret, rework hierarchy notations. Copy to the clipboard afterwards.
