@@ -2,7 +2,7 @@ Many useful scripts for usage in Notepad++. Setup first is needed to have Python
 After that, it becomes really powerful.
 
 Wim Gielis
-2025
+2025-2026
 
 
 - MergeLines.py (alt-m):
@@ -76,6 +76,9 @@ Insert text or a series of numbers (with a pattern) onto the rectangular selecti
 
 - ReplaceWithTemplate.py (alt-shift-t):
 Replace the selected lines with a template (to add text in front and/or at the end)
+
+- DuplicateAndIncrease (Alt-<):
+Duplicate the current line and increment each number with 1. Uses regex.
 
 - TM1Tools (Alt-f):
 4 tools. Remove empty lines, remove left of caret, rework hierarchy notations. Copy to the clipboard afterwards.
