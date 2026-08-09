@@ -8,6 +8,8 @@ Wim Gielis
 - MergeLines.py (alt-m):
 Select lines and choose a separator. I could not find the same functionality in Notepad++ but maybe I overlooked. The separator is stored in an ini file.
 
+- MergeLines_in_coding.py (alt-shift-m): The lines (Python code) and we go from multiple lines to 1 longer concatenated line.
+
 - SplitText.py (alt-e):
 The inverse operation of MergeLines. A custom separator can be derived and if not found, chosen. The separator is stored in an ini file.
 
