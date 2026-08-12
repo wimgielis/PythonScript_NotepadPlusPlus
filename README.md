@@ -10,6 +10,8 @@ Select lines and choose a separator. I could not find the same functionality in 
 
 - MergeLines_in_coding.py (alt-shift-m): The lines (Python code) and we go from multiple lines to 1 longer concatenated line.
 
+- RemoveWhitespace (ctrl-<): From the end of the line, put a space, then remove all whitespace until the next non-whitespace character.
+
 - SplitText.py (alt-e):
 The inverse operation of MergeLines. A custom separator can be derived and if not found, chosen. The separator is stored in an ini file.
 
