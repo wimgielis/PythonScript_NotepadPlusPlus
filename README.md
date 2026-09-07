@@ -12,6 +12,8 @@ Select lines and choose a separator. I could not find the same functionality in 
 
 - RemoveWhitespace (ctrl-<): From the end of the line, put a space, then remove all whitespace until the next non-whitespace character.
 
+- RemoveTextWithTags (ctrl-F7): Select an HTML or XML opening/closing tag and delete the entire text in between, including both tags.
+
 - SplitText.py (alt-e):
 The inverse operation of MergeLines. A custom separator can be derived and if not found, chosen. The separator is stored in an ini file.
 
